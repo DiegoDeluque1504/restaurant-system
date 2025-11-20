@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Órdenes - Restaurante</title>
+</head>
+<body>
+    <h1>Lista de Órdenes</h1>
+    <ul>
+    {% for order in orders %}
+        <li>
+            <strong>Orden #{{ order.id }}</strong> - {{ order.date }}
+            <br>Total: ${{ order.total }} - Estado: {{ order.status }}
+        </li>
+    {% empty %}
+        <li>No hay órdenes disponibles</li>
+    {% endfor %}
+    </ul>
+</body>
+</html>

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Mesas - Restaurante</title>
+</head>
+<body>
+    <h1>Lista de Mesas</h1>
+    <ul>
+    {% for table in tables %}
+        <li>
+            <strong>Mesa {{ table.number }}</strong> - Capacidad: {{ table.capacity }}
+            <br>Estado: {{ table.status }}
+        </li>
+    {% empty %}
+        <li>No hay mesas disponibles</li>
+    {% endfor %}
+    </ul>
+</body>
+</html>

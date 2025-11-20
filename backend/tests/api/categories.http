@@ -1,0 +1,66 @@
+### =================================================================
+### CATEGORIES API - PRUEBAS COMPLETAS
+### =================================================================
+
+@baseUrl = http://localhost:8000
+
+### =================================================================
+### 1. VIEWSET - /api/viewset/categories/
+### =================================================================
+
+### 1.1 GET - Listar todas las categorías
+GET {{baseUrl}}/api/viewset/categories/
+
+### 1.2 GET - Ver categoría específica (cambiar el ID según tus datos)
+GET {{baseUrl}}/api/viewset/categories/1/
+
+### 1.3 POST - Crear nueva categoría
+POST {{baseUrl}}/api/viewset/categories/
+Content-Type: application/json
+
+{
+    "name": "Entradas",
+    "description": "Aperitivos y entradas variadas",
+    "status": "ACTIVE"
+}
+
+### 1.4 POST - Crear otra categoría
+POST {{baseUrl}}/api/viewset/categories/
+Content-Type: application/json
+
+{
+    "name": "Platos Fuertes",
+    "description": "Platos principales del menú",
+    "status": "ACTIVE"
+}
+
+### 1.5 POST - Crear categoría de bebidas
+POST {{baseUrl}}/api/viewset/categories/
+Content-Type: application/json
+
+{
+    "name": "Bebidas",
+    "description": "Bebidas frías y calientes",
+    "status": "ACTIVE"
+}
+
+### 1.6 PUT - Actualizar categoría completa (cambiar ID)
+PUT {{baseUrl}}/api/viewset/categories/1/
+Content-Type: application/json
+
+{
+    "name": "Entradas Premium",
+    "description": "Aperitivos gourmet y entradas especiales",
+    "status": "ACTIVE"
+}
+
+### 1.7 PATCH - Actualización parcial (solo cambiar status)
+PATCH {{baseUrl}}/api/viewset/categories/1/
+Content-Type: application/json
+
+{
+    "status": "INACTIVE"
+}
+
+### 1.8 DELETE - Eliminar categoría (CUIDADO! Es permanente)
+# DELETE {{baseUrl}}/api/viewset/categories/1/

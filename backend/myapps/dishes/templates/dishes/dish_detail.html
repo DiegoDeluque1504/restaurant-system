@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ dish.name }} - Restaurante</title>
+</head>
+<body>
+    <h1>{{ dish.name }}</h1>
+    <p><strong>Descripción:</strong> {{ dish.description }}</p>
+    <p><strong>Precio:</strong> ${{ dish.price }}</p>
+    <p><strong>Categoría:</strong> {{ dish.category.name }}</p>
+    <p><strong>Estado:</strong> {{ dish.status }}</p>
+    <a href="/dishes/">Volver a platos</a>
+</body>
+</html>

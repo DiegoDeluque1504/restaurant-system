@@ -1,0 +1,54 @@
+### =================================================================
+### ORDERS API - PRUEBAS COMPLETAS
+### =================================================================
+
+@baseUrl = http://localhost:8000
+
+### 1. GET - Listar todas las órdenes
+GET {{baseUrl}}/api/apiview/orders/
+
+### 2. GET - Ver orden específica
+GET {{baseUrl}}/api/apiview/orders/1/
+
+### 3. POST - Crear orden para mesa (DINE_IN)
+POST {{baseUrl}}/api/apiview/orders/
+Content-Type: application/json
+
+{
+    "status": "PENDING",
+    "total": "50000.00",
+    "order_type": "DINE_IN",
+    "table": 1
+}
+
+### 4. POST - Crear orden para llevar (TAKEOUT)
+POST {{baseUrl}}/api/apiview/orders/
+Content-Type: application/json
+
+{
+    "status": "PENDING",
+    "total": "35000.00",
+    "order_type": "TAKEOUT"
+}
+
+### 5. PUT - Actualizar orden
+PUT {{baseUrl}}/api/apiview/orders/1/
+Content-Type: application/json
+
+{
+    "status": "PREPARING",
+    "total": "50000.00",
+    "order_type": "DINE_IN",
+    "table": 1
+}
+
+### 6. PATCH - Actualización parcial
+PATCH {{baseUrl}}/api/apiview-rewrite/orders/1/
+Content-Type: application/json
+
+{
+    "status": "READY"
+}
+
+### 7. DELETE - Eliminar orden
+# DELETE {{baseUrl}}/api/apiview/orders/1/

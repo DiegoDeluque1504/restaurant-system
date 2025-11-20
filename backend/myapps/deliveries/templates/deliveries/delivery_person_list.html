@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Repartidores - Restaurante</title>
+</head>
+<body>
+    <h1>Lista de Repartidores</h1>
+    <ul>
+    {% for person in delivery_persons %}
+        <li>
+            <strong>{{ person.name }}</strong> - Tel: {{ person.phone }}
+            <br>Estado: {{ person.status }}
+        </li>
+    {% empty %}
+        <li>No hay repartidores disponibles</li>
+    {% endfor %}
+    </ul>
+</body>
+</html>

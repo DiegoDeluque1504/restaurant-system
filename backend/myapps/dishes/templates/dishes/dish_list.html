@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Platos - Restaurante</title>
+</head>
+<body>
+    <h1>Lista de Platos</h1>
+    <ul>
+    {% for dish in dishes %}
+        <li>
+            <strong>{{ dish.name }}</strong> - ${{ dish.price }}
+            <br>{{ dish.description }}
+        </li>
+    {% empty %}
+        <li>No hay platos disponibles</li>
+    {% endfor %}
+    </ul>
+</body>
+</html>

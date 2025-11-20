@@ -1,0 +1,40 @@
+<div class="container mt-4">
+  <div class="d-flex justify-content-between align-items-center mb-4">
+    <h2><i class="bi bi-truck me-2"></i>Entregas</h2>
+    <a routerLink="/deliveries/new" class="btn btn-primary">
+      <i class="bi bi-plus-lg me-2"></i>Nueva Entrega
+    </a>
+  </div>
+
+  <div *ngIf="loading" class="text-center py-5">
+    <div class="spinner-border text-primary"></div>
+  </div>
+
+  <div *ngIf="!loading && deliveries.length === 0" class="alert alert-info">
+    <i class="bi bi-info-circle me-2"></i>
+    No hay entregas registradas
+  </div>
+
+  <div class="row" *ngIf="!loading && deliveries.length > 0">
+    <div class="col-md-6 mb-3" *ngFor="let delivery of deliveries">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">
+            <i class="bi bi-person me-2"></i>{{ delivery.customer_name }}
+          </h5>
+          <p class="card-text">
+            <i class="bi bi-geo-alt me-2"></i>{{ delivery.address }}<br>
+            <i class="bi bi-telephone me-2"></i>{{ delivery.phone }}<br>
+            <i class="bi bi-cash me-2"></i>Costo: ${{ delivery.cost }}
+          </p>
+          <div class="btn-group">
+            <button class="btn btn-sm btn-outline-danger" 
+                    (click)="deleteDelivery(delivery.id!)">
+              <i class="bi bi-trash"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

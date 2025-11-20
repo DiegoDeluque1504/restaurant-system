@@ -1,0 +1,72 @@
+<div class="container mt-4">
+  <div class="card">
+    <div class="card-header bg-primary text-white">
+      <h4 class="mb-0">
+        <i class="bi bi-plus-circle me-2"></i>Nueva Entrega
+      </h4>
+    </div>
+    <div class="card-body">
+      <form [formGroup]="deliveryForm" (ngSubmit)="onSubmit()">
+        <div class="mb-3">
+          <label class="form-label">Cliente *</label>
+          <input type="text" class="form-control" 
+                 formControlName="customer_name"
+                 [class.is-invalid]="submitted && f['customer_name'].errors">
+          <div class="invalid-feedback" *ngIf="submitted && f['customer_name'].errors">
+            El nombre del cliente es requerido
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label">Dirección *</label>
+          <textarea class="form-control" rows="2"
+                    formControlName="address"
+                    [class.is-invalid]="submitted && f['address'].errors"></textarea>
+          <div class="invalid-feedback" *ngIf="submitted && f['address'].errors">
+            La dirección es requerida
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-6 mb-3">
+            <label class="form-label">Teléfono *</label>
+            <input type="tel" class="form-control" 
+                   formControlName="phone"
+                   [class.is-invalid]="submitted && f['phone'].errors">
+            <div class="invalid-feedback" *ngIf="submitted && f['phone'].errors">
+              El teléfono es requerido
+            </div>
+          </div>
+
+          <div class="col-md-6 mb-3">
+            <label class="form-label">Costo *</label>
+            <input type="number" class="form-control" 
+                   formControlName="cost"
+                   [class.is-invalid]="submitted && f['cost'].errors">
+            <div class="invalid-feedback" *ngIf="submitted && f['cost'].errors">
+              El costo es requerido
+            </div>
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label">Repartidor</label>
+          <select class="form-select" formControlName="delivery_person">
+            <option [value]="null">Sin asignar</option>
+            <option *ngFor="let person of deliveryPersons" [value]="person.id">
+              {{ person.name }}
+            </option>
+          </select>
+        </div>
+
+        <div class="d-flex gap-2">
+          <button type="submit" class="btn btn-primary" [disabled]="loading">
+            <span *ngIf="loading" class="spinner-border spinner-border-sm me-2"></span>
+            Guardar
+          </button>
+          <a routerLink="/deliveries" class="btn btn-secondary">Cancelar</a>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

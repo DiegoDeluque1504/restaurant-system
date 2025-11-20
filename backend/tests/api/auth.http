@@ -1,0 +1,43 @@
+### =================================================================
+### AUTENTICACIÓN JWT
+### =================================================================
+
+@baseUrl = http://localhost:8000
+@token = TU_TOKEN_AQUI
+
+### IMPORTANTE: Solo funciona cuando actives JWT en settings.py
+
+### 1. LOGIN
+POST {{baseUrl}}/api/auth/login/
+Content-Type: application/json
+
+{
+    "username": "admin",
+    "password": "admin123"
+}
+
+### 2. REGISTRAR USUARIO
+POST {{baseUrl}}/api/auth/register/
+Content-Type: application/json
+
+{
+    "username": "nuevo_usuario",
+    "password": "password123",
+    "password2": "password123",
+    "email": "nuevo@restaurant.com",
+    "first_name": "Nuevo",
+    "last_name": "Usuario"
+}
+
+### 3. VER PERFIL
+GET {{baseUrl}}/api/auth/profile/
+Authorization: Bearer {{token}}
+
+### 4. LOGOUT
+POST {{baseUrl}}/api/auth/logout/
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+    "refresh": "TU_REFRESH_TOKEN"
+}

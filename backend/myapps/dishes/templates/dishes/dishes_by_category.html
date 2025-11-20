@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Platos - {{ category.name }}</title>
+</head>
+<body>
+    <h1>Platos de la categoría: {{ category.name }}</h1>
+    <ul>
+    {% for dish in dishes %}
+        <li>
+            <strong>{{ dish.name }}</strong> - ${{ dish.price }}
+            <br>{{ dish.description }}
+        </li>
+    {% empty %}
+        <li>No hay platos en esta categoría</li>
+    {% endfor %}
+    </ul>
+    <a href="/dishes/">Volver a todos los platos</a>
+</body>
+</html>

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Categorías - Restaurante</title>
+</head>
+<body>
+    <h1>Lista de Categorías</h1>
+    <ul>
+    {% for category in categories %}
+        <li>
+            <strong>{{ category.name }}</strong>: {{ category.description }}
+        </li>
+    {% empty %}
+        <li>No hay categorías disponibles</li>
+    {% endfor %}
+    </ul>
+</body>
+</html>

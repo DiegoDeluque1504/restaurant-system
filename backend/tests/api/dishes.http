@@ -1,0 +1,58 @@
+### =================================================================
+### DISHES API - PRUEBAS COMPLETAS
+### =================================================================
+
+@baseUrl = http://localhost:8000
+
+### 1. GET - Listar todos los platos
+GET {{baseUrl}}/api/generic/dishes/
+
+### 2. GET - Ver plato específico
+GET {{baseUrl}}/api/generic/dishes/1/
+
+### 3. POST - Crear plato (necesitas tener una categoría creada primero)
+POST {{baseUrl}}/api/generic/dishes/
+Content-Type: application/json
+
+{
+    "name": "Pizza Margherita",
+    "description": "Pizza clásica con tomate, mozzarella y albahaca fresca",
+    "price": "25000.00",
+    "category": 1,
+    "status": "ACTIVE"
+}
+
+### 4. POST - Crear hamburguesa
+POST {{baseUrl}}/api/generic/dishes/
+Content-Type: application/json
+
+{
+    "name": "Hamburguesa Clásica",
+    "description": "Hamburguesa de carne con queso, lechuga, tomate y salsas",
+    "price": "18000.00",
+    "category": 2,
+    "status": "ACTIVE"
+}
+
+### 5. PUT - Actualizar plato completo
+PUT {{baseUrl}}/api/generic/dishes/1/
+Content-Type: application/json
+
+{
+    "name": "Pizza Margherita Premium",
+    "description": "Pizza gourmet con mozzarella de búfala",
+    "price": "32000.00",
+    "category": 1,
+    "status": "ACTIVE"
+}
+
+### 6. PATCH - Actualización parcial (solo precio)
+PATCH {{baseUrl}}/api/generic/dishes/1/
+Content-Type: application/json
+
+{
+    "price": "28000.00"
+}
+
+### 7. DELETE - Eliminar plato
+# DELETE {{baseUrl}}/api/generic/dishes/1/

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Entregas - Restaurante</title>
+</head>
+<body>
+    <h1>Lista de Entregas</h1>
+    <ul>
+    {% for delivery in deliveries %}
+        <li>
+            <strong>Entrega a {{ delivery.customer_name }}</strong>
+            <br>Dirección: {{ delivery.address }}
+            <br>Costo: ${{ delivery.cost }}
+        </li>
+    {% empty %}
+        <li>No hay entregas disponibles</li>
+    {% endfor %}
+    </ul>
+</body>
+</html>

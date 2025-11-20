@@ -1,0 +1,38 @@
+### =================================================================
+### DELIVERIES API - PRUEBAS COMPLETAS
+### =================================================================
+
+@baseUrl = http://localhost:8000
+
+### 1. GET - Listar todas las entregas
+GET {{baseUrl}}/api/decorator/deliveries/
+
+### 2. GET - Ver entrega específica
+GET {{baseUrl}}/api/decorator/deliveries/1/
+
+### 3. POST - Crear entrega
+POST {{baseUrl}}/api/decorator/deliveries/
+Content-Type: application/json
+
+{
+    "address": "Calle 123 #45-67, Barrio Centro",
+    "phone": "3001234567",
+    "customer_name": "Juan Pérez",
+    "cost": "5000.00",
+    "delivery_person": 1
+}
+
+### 4. PUT - Actualizar entrega
+PUT {{baseUrl}}/api/decorator/deliveries/1/
+Content-Type: application/json
+
+{
+    "address": "Carrera 50 #30-20",
+    "phone": "3109876543",
+    "customer_name": "María García",
+    "cost": "7000.00",
+    "delivery_person": 2
+}
+
+### 5. DELETE - Eliminar entrega
+# DELETE {{baseUrl}}/api/decorator/deliveries/1/
